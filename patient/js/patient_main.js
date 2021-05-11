@@ -20,6 +20,24 @@ function togglePage(){
 	 }
 }
 
-navigateToCreateRequest(){
+function navigateToCreateRequest(){
 	window.location.href = 'request.php';
 }
+
+function createItem(patient_id) {
+	localStorage.setItem('patient_id', patient_id); 
+} 
+
+function getValue() {
+	return localStorage.getItem('patient_id');  
+} 
+
+
+
+var loadFile = function(event) {
+								var image = document.getElementById('output');
+								image.src = URL.createObjectURL(event.target.files[0]);
+								};
+
+
+					

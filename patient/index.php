@@ -9,7 +9,12 @@ if(isset($_POST['submit']))
 	$sql = "SELECT * FROM patient WHERE patient_name= '$name' AND patient_password= '$password';";
 	$result = $conn->query($sql);
 	if ($result->num_rows > 0) {
-	  	echo "<script >location.href = 'main.php';</script>";
+		while($row = $result->fetch_assoc()) {
+			$patient_id = $row["patient_id"];
+			setcookie('patient_id', $patient_id, time() + (86400 * 30), "/"); // 86400 = 1 day
+  		}
+	  	echo "<script >
+	  	location.href = 'main.php';</script>";
 	} else {
 	  echo "0 results";
 	}
@@ -25,6 +30,7 @@ if(isset($_POST['submit']))
 	<link rel="stylesheet" href="../css/bootstrap/css/bootstrap.css">
 	<link rel="stylesheet" href="css/style.css">
 	<script type="text/javascript" src="js/patient_main.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
 </head>
 <body>
 	<div class="container">
