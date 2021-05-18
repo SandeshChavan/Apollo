@@ -24,13 +24,6 @@ function navigateToCreateRequest(){
 	window.location.href = 'request.php';
 }
 
-function createItem(patient_id) {
-	localStorage.setItem('patient_id', patient_id); 
-} 
-
-function getValue() {
-	return localStorage.getItem('patient_id');  
-} 
 
 
 

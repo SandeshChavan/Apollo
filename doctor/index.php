@@ -9,6 +9,12 @@ if(isset($_POST['submit']))
 	$sql = "SELECT * FROM doctor WHERE doctor_name= '$name' AND doctor_password= '$password';";
 	$result = $conn->query($sql);
 	if ($result->num_rows > 0) {
+		while($row = $result->fetch_assoc()) {
+			$doctor_id = $row["doctor_id"];
+			setcookie('doctor_id', $doctor_id, time() + (86400 * 30), "/"); // 86400 = 1 day
+  		}
+	  	echo "<script >
+	  	location.href = 'main.php';</script>";
 	  	echo "Success";
 	} else {
 	  echo "0 results";
