@@ -48,7 +48,7 @@ include("../config/dbconnection.php");
 							  	<div>
 							  		<img src = ../".$row['patient_image_url'].">
 							  	</div>
-							  	<div onclick = 'predict(".$row['patient_image_url'].")'>
+							  	<div onclick = 'predict(\"".$row['patient_image_url']."\" , \"".$_COOKIE['doctor_id']."\" , \"".$row['patient_id']."\", \"".$row['appointment_id']."\")'>
 							  		Scan
 							  	</div>
 							  	";	

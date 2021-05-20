@@ -19,6 +19,14 @@ function navigateToIndividualReport(patientId, appointmentId){
 	window.location.href = url;
 }
 
-function predict(imageurl){
-	window.location.href = 'http://localhost:12345/predict?imageUrl=' + imageUrl;
+function predict(imageUrl,doctorId, patientId, appointmentId){
+	window.location.href = 'http://localhost:12345/predict?imageUrl=' + imageUrl + '&doctorId=' + doctorId + '&patientId=' + patientId + '&appointmentId=' + appointmentId;
+}
+
+function navigateToScheduleAppointment(patientId, appointmentId){
+	window.location.href = 'http://localhost/doctor/schedule.php?patient_id=' + patientId + '&appointment_id=' + appointmentId;
+}
+
+function navigateToHome(){
+	window.location.href = 'http://localhost/doctor/main.php';
 }
