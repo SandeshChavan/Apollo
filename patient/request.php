@@ -57,65 +57,83 @@ $sql_query_3 = "SELECT * FROM patient_appointment";
 			<div class = 'col-12'>
 				<form  action="" method="post" enctype="multipart/form-data">
 						<div>
-							<div class = 'd-inline-block'>
-								<div>Name</div>
+							<div>
+								<div class = 'text'>Name</div>
 							</div>
-							<div class = 'd-inline-block'>
-								<input type="text" name="patient_name" value = "<?php echo $row['patient_name']; ?>">
-							</div>
-						</div>
-						<div>
-							<div class = 'd-inline-block'>
-								<div>Email</div>
-							</div>
-							<div class = 'd-inline-block'>
-								<input type="text" name="patient_email" value = "<?php echo $row['patient_email']; ?>">
+							<div>
+								<input class = 'form-control' type="text" name="patient_name" value = "<?php echo $row['patient_name']; ?>">
 							</div>
 						</div>
 						<div>
-							<div class = 'd-inline-block'>
-								<div>Mobile</div>
+							<div class = 'text-container'>
+								<div class = 'text'>Email</div>
 							</div>
-							<div class = 'd-inline-block'>
-								<input type="text" name="patient_mobile" value =  "<?php echo $row['patient_mobile']; ?>">
-							</div>
-						</div>
-						<div>
-							<div class = 'd-inline-block'>
-								<div>address</div>
-							</div>
-							<div class = 'd-inline-block'>
-								<input type="text" name="patient_address" value =  "<?php echo $row['patient_address']; ?>">
+							<div>
+								<input class = 'form-control' type="text" name="patient_email" value = "<?php echo $row['patient_email']; ?>">
 							</div>
 						</div>
 						<div>
-							<div class = 'd-inline-block'>
-								<div>Date</div>
+							<div class = 'text-container'>
+								<div class = 'text'>Mobile</div>
 							</div>
-							<div class = 'd-inline-block'>
-								<input type="text" name="schedule_date" value =  "<?php echo  date("Y/m/d")  ?>">
-							</div>
-						</div>
-						<div>
-							<div class = 'd-inline-block'>
-								<div>Age</div>
-							</div>
-							<div class = 'd-inline-block'>
-								<input type="text" name="patient_age" value =  "<?php echo $row['patient_age']; ?>">
+							<div >
+								<input class = 'form-control' type="text" name="patient_mobile" value = "<?php echo $row['patient_mobile']; ?>">
 							</div>
 						</div>
 						<div>
-							<div class = 'd-inline-block'>
-								<div>Details</div>
+							<div class = 'text-container'>
+								<div class = 'text'>address</div>
 							</div>
-							<div class = 'd-inline-block'>
-								<textarea name="details"></textarea> 
+							<div>
+								<input class = 'form-control' type="text" name="patient_address" value = "<?php echo $row['patient_address']; ?>">
 							</div>
 						</div>
 						<div>
-							<div class = 'd-inline-block'>
-								
+							<div class = 'text-container'>
+								<div class = 'text'>Blood group</div>
 							</div>
+							<div>
+								<select class = 'form-control' name = 'patient_blood_group' value = "<?php echo $row['patient_blood_group']; ?>">
+									<option value = 'O+'>O+</option>
+									<option value = 'O-'>O-</option>
+									<option value = 'A+'>A+</option>
+									<option value = 'A-'>A-</option>
+									<option value = 'B+'>B+</option>
+									<option value = 'B-'>B-</option>
+									<option value = 'AB+'>AB+</option>
+									<option value = 'AB-'>AB-</option>
+								</select>
+							</div>
+						</div>
+						<div>
+							<div class = 'text-container'>
+								<div class = 'text'>Sex</div>
+							</div>
+							<div>
+								<select class = 'form-control' name = 'patient_sex' value = "<?php echo $row['patient_sex']; ?>">
+									<option value = 'Male'>Male</option>
+									<option value = 'Female'>Female</option>
+									<option value = 'Other'>Other</option>
+								</select>
+							</div>
+						</div>
+						<div>
+							<div class = 'text-container'>
+								<div class = 'text'>Age</div>
+							</div>
+							<div>
+								<input class = 'form-control' type="text" name="patient_age" value = "<?php echo $row['patient_age']; ?>">
+							</div>
+						</div>
+						<div>
+							<div class = 'text-container'>
+								<div class = 'text'>Details</div>
+							</div>
+							<div>
+								<textarea class = 'form-control' name="details"></textarea> 
+							</div>
+						</div>
+						<div>
 							<div class = 'd-inline-block'>
 								<input type="file"  name="image" id="file"  onchange="loadFile(event)" style="display: none;">
 								<label for="file" style="cursor: pointer;">Upload Image</label>
@@ -123,19 +141,19 @@ $sql_query_3 = "SELECT * FROM patient_appointment";
 							</div>
 						</div>
 						<div>
-							<div class = 'd-inline-block'>
-								<div>Doctor</div>
+							<div class = 'text-container'>
+								<div class = 'text'>Doctor</div>
 							</div>
-							<div class = 'd-inline-block'>
+							<div class = 'text'>
 								<?php 
-								echo "<select name = 'doctor_id'>";								
+								echo "<select class = 'form-control' name = 'doctor_id'>";								
 								echo "<option  value='".$row2['doctor_id']."'>".$row2['doctor_name']."</option>";
 								echo "</select>";
 								 ?> 
 							</div>
 						</div>
-						</div>
-							<input  type="submit" name="submit" id="submit" value="submit">
+						<div id = 'submit-container'>
+							<input class = 'btn orange' type="submit" name="submit" id="submit" value="submit">
 						</div>
 					</form>
 			</div>

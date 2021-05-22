@@ -95,9 +95,6 @@ include("../config/dbconnection.php");
 							  	<div >
 							  		<img class  = 'image' src = ../".$row['patient_image_url'].">
 							  	</div>
-							  	<div class = 'btn scan' onclick = 'predict(\"".$row['patient_image_url']."\" , \"".$_COOKIE['doctor_id']."\" , \"".$row['patient_id']."\", \"".$row['appointment_id']."\")'>
-							  		Scan MRI for tumor
-							  	</div>
 							  	";	
   								}
 							  ?>

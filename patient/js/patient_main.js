@@ -33,4 +33,7 @@ var loadFile = function(event) {
 								};
 
 
-					
+function navigateToIndividualReport(patientId, appointmentId){
+	var url = 'detail.php?patient_id=' + patientId + '&appointment_id=' + appointmentId;
+	window.location.href = url;
+}

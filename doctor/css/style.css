@@ -94,7 +94,7 @@
 }
 
 .record{
-        border: 1.5px dashed #3b429f;
+    border: 1.5px dashed #3b429f;
     border-radius: 7.5px;
     margin-bottom: 15px;
 }
@@ -104,6 +104,13 @@
     font-size: 13px;
     font-weight: 500;
     text-align: center;
+    width: 100px;
+}
+
+.label1{
+    padding: 5px;
+    font-size: 13px;
+    font-weight: 500;
     width: 100px;
 }
 
@@ -122,8 +129,38 @@
 }
 
 
-#image{
+.image{
     height: 400px;
     width: 100%;
     object-fit: contain;
+}
+
+#probablity{
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.record-probablity{
+    border: 1.5px dashed #3b429f;
+    border-radius: 7.5px;
+    margin-bottom: 15px;
+    padding: 2px;
+}
+
+.final-prediction{
+    color: red;
+    font-weight: 500;
+    font-size: 20px;
+}
+
+#schedule{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+#result-text{
+    text-align: center;
+    font-size: 20px;
+    font-weight: 500;
+    margin-top: 15px;
 }
