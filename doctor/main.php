@@ -2,19 +2,15 @@
 include("../config/dbconnection.php");
 
 $sql = "SELECT * FROM scheduled_appointment S,patient P WHERE doctor_id =".$_COOKIE['doctor_id']." AND S.patient_id = P.patient_id;";
-echo $sql;
 $result = $conn->query($sql);
 	if ($result->num_rows > 0) {
-	  	echo "Success";
 	} else {
 	  echo "0 results";
 	}
 
 $sql1 = "SELECT * FROM patient_appointment A,patient P WHERE doctor_id =".$_COOKIE['doctor_id']." AND A.patient_id = P.patient_id;";
-echo $sql1;
 $result1 = $conn->query($sql1);
 	if ($result1->num_rows > 0) {
-	  	echo "Success";
 	} else {
 	  echo "0 results";
 	}
@@ -35,63 +31,100 @@ $result1 = $conn->query($sql1);
 			<div class = 'col-12'>
 				<div id  = 'request'>
 					<div id  = 'view_record'>
-						<div>
-							<div id = 'record'>
 							<?php
 							  while($row1 = $result1->fetch_assoc()) {
 									
 							  	echo "
-							  	<div>
+							  	<div class = 'record' onclick = 'navigateToIndividualReport(".$row1['patient_id'].",".$row1['appointment_id'].")'>
+							  	<div class = 'main-container'>
+							  		<div class = 'label-container d-inline-block'>
+							  			<div class = 'label'>Patient id</div>
+							  		</div>
+							  		<div class = 'label-value d-inline-block'>
 							  		".$row1['patient_id']."
+							  		</div>
 							  	</div>
-							  	<div>
+							  	<div class = 'main-container'>
+							  		<div class = 'label-container d-inline-block'>
+							  			<div class = 'label'>Patient name</div>
+							  		</div>
+							  		<div class = 'label-value d-inline-block'>
 							  		".$row1['patient_name']."
+							  		</div>
 							  	</div>
-							  	<div>
-							  		".$row1['schedule_date']."
+							  	<div class = 'main-container'>
+							  		<div class = 'label-container d-inline-block'>
+							  			<div class = 'label'>Information</div>
+							  		</div>
+							  		<div class = 'label-value d-inline-block'>
+							  		".$row1['details']."
+							  		</div>
 							  	</div>
-							  	<div>
+							  	<div class = 'main-container'>
+							  		<div class = 'label-container d-inline-block'>
+							  			<div class = 'label'>Mobile</div>
+							  		</div>
+							  		<div class = 'label-value d-inline-block'>
 							  		".$row1['patient_mobile']."
+							  		</div>
 							  	</div>
-							  	<div onclick = 'navigateToIndividualReport(".$row1['patient_id'].",".$row1['appointment_id'].")'>
-							  		View
 							  	</div>
 							  	";	
 
   								}
 							  ?>
-						
-					</div>
-						</div>
 					</div>
 				</div>
+
+
+
 				<div id  = 'scheduled'>
-					<div>
 						<?php
-							  while($row = $result->fetch_assoc()) {
-									
+							  while($row = $result->fetch_assoc()) {	
 							  	echo "
-							  	<div>
+							  	<div class = 'record'>
+							  		<div class = 'label-container d-inline-block'>
+							  			<div class = 'label'>Patient id</div>
+							  		</div>
+							  		<div class = 'label-value d-inline-block'>
 							  		".$row['patient_id']."
-							  	</div>
-							  	<div>
+							  		</div>
+							  	<div class = 'main-container'>
+							  		<div class = 'label-container d-inline-block'>
+							  			<div class = 'label'>Patient name</div>
+							  		</div>
+							  		<div class = 'label-value d-inline-block'>
 							  		".$row['patient_name']."
+							  		</div>
 							  	</div>
-							  	<div>
+							  	<div class = 'main-container'>
+							  		<div class = 'label-container d-inline-block'>
+							  			<div class = 'label'>Appointment</div>
+							  		</div>
+							  		<div class = 'label-value d-inline-block'>
 							  		".$row['appointment_date']."
+							  		</div>
 							  	</div>
-							  	<div>
+							  	<div class = 'main-container'>
+							  		<div class = 'label-container d-inline-block'>
+							  			<div class = 'label'>Mobile</div>
+							  		</div>
+							  		<div class = 'label-value d-inline-block'>
 							  		".$row['patient_mobile']."
+							  		</div>
+							  	</div>
 							  	</div>
 							  	";	
 
   								}
 							  ?>
-					</div>
+				
 				</div>
 			</div>
-			<div class = 'col-6' onclick="togglePage()">Appointment request</div>
-			<div class = 'col-6' onclick="togglePage()">Scheduled appointment</div>
+			<div id  = 'navigator'>
+				<div class = 'd-inline-block' onclick="togglePage()">Appointment request</div>
+				<div class = 'd-inline-block' onclick="togglePage()">Scheduled appointment</div>
+			</div>
 		</div>
 	</div>
 </body>

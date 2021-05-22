@@ -34,6 +34,9 @@ model = tensorflow.keras.models.load_model('keras_model.h5')
 
 app = Flask(__name__, template_folder='../doctor')
 
+
+
+
 @app.route('/predict', methods=['GET'])
 def model_predict():
 	path = request.args.get("imageUrl")

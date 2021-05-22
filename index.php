@@ -13,17 +13,18 @@ include("header.php");
 <body>
 	<script src="js/main.js"></script>
 	<div class="container">
-		<div class = "row">
-			<div class = 'col-12' onclick = "navigate('doctor')">
-				Doctor
+		<div class = "row card">
+			<div class = 'col-12 box' onclick = "navigate('doctor')">
+				<div class = 'box-style'>
+					Doctor
+				</div>
 			</div>
-			<div class = 'col-12' onclick = "navigate('patient')">
-				Patient
+			<div class = 'col-12 box' onclick = "navigate('patient')">
+				<div class = 'box-style'>
+					Patient
+				</div>
 			</div>
 		</div>
 	</div>
 </body>
 </html>
-<?php
-include("footer.php");
-?>

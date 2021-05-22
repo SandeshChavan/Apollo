@@ -33,54 +33,54 @@ if(isset($_POST['submit']))
 	<div class="container">
 		<div class = "row">
 			<div class = 'col-12'>
-				<div>
+				<div class = 'card-form'>
 					<form method="post" action="">
 						<div>
-							<div class = 'd-inline-block'>
-								<div>Name</div>
+							<div>
+								<div class = 'text'>Name</div>
 							</div>
-							<div class = 'd-inline-block'>
-								<input type="text" name="patient_name" required>
-							</div>
-						</div>
-						<div>
-							<div class = 'd-inline-block'>
-								<div>Email</div>
-							</div>
-							<div class = 'd-inline-block'>
-								<input type="text" name="patient_email" required>
+							<div>
+								<input class = 'form-control' type="text" name="patient_name" required>
 							</div>
 						</div>
 						<div>
-							<div class = 'd-inline-block'>
-								<div>Mobile</div>
+							<div class = 'text-container'>
+								<div class = 'text'>Email</div>
 							</div>
-							<div class = 'd-inline-block'>
-								<input type="text" name="patient_mobile" required>
-							</div>
-						</div>
-						<div>
-							<div class = 'd-inline-block'>
-								<div>Password</div>
-							</div>
-							<div class = 'd-inline-block'>
-								<input type="password" name="patient_password" required>
+							<div>
+								<input class = 'form-control' type="text" name="patient_email" required>
 							</div>
 						</div>
 						<div>
-							<div class = 'd-inline-block'>
-								<div>address</div>
+							<div class = 'text-container'>
+								<div class = 'text'>Mobile</div>
 							</div>
-							<div class = 'd-inline-block'>
-								<input type="text" name="patient_address" required>
+							<div >
+								<input class = 'form-control' type="text" name="patient_mobile" required>
 							</div>
 						</div>
 						<div>
-							<div class = 'd-inline-block'>
-								<div>Blood group</div>
+							<div class = 'text-container'>
+								<div class = 'text'>Password</div>
 							</div>
-							<div class = 'd-inline-block'>
-								<select name = 'patient_blood_group'>
+							<div>
+								<input class = 'form-control' type="password" name="patient_password" required>
+							</div>
+						</div>
+						<div>
+							<div class = 'text-container'>
+								<div class = 'text'>address</div>
+							</div>
+							<div>
+								<input class = 'form-control' type="text" name="patient_address" required>
+							</div>
+						</div>
+						<div>
+							<div class = 'text-container'>
+								<div class = 'text'>Blood group</div>
+							</div>
+							<div>
+								<select class = 'form-control' name = 'patient_blood_group'>
 									<option value = 'O+'>O+</option>
 									<option value = 'O-'>O-</option>
 									<option value = 'A+'>A+</option>
@@ -93,11 +93,11 @@ if(isset($_POST['submit']))
 							</div>
 						</div>
 						<div>
-							<div class = 'd-inline-block'>
-								<div>Sex</div>
+							<div class = 'text-container'>
+								<div class = 'text'>Sex</div>
 							</div>
-							<div class = 'd-inline-block'>
-								<select name = 'patient_sex'>
+							<div>
+								<select class = 'form-control' name = 'patient_sex'>
 									<option value = 'Male'>Male</option>
 									<option value = 'Female'>Female</option>
 									<option value = 'Other'>Other</option>
@@ -105,14 +105,16 @@ if(isset($_POST['submit']))
 							</div>
 						</div>
 						<div>
-							<div class = 'd-inline-block'>
-								<div>Age</div>
+							<div class = 'text-container'>
+								<div class = 'text'>Age</div>
 							</div>
-							<div class = 'd-inline-block'>
-								<input type="text" name="patient_age" required>
+							<div>
+								<input class = 'form-control' type="text" name="patient_age" required>
 							</div>
 						</div>
-							<input  type="submit" name="submit" id="submit" value="submit">
+						<div id = 'submit-container'>
+							<input class = 'btn orange' type="submit" name="submit" id="submit" value="submit">
+						</div>
 						</div>
 					</form>	
 				</div>

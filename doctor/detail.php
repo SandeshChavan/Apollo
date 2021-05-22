@@ -2,10 +2,8 @@
 include("../config/dbconnection.php");
 	if(isset($_GET['patient_id']) && isset($_GET['appointment_id'])){
 	$sql = "SELECT * FROM patient_appointment A,patient P WHERE doctor_id =".$_COOKIE['doctor_id']."  AND A.patient_id =".$_GET['patient_id']." AND appointment_id = ".$_GET['appointment_id']." AND A.patient_id = P.patient_id;";
-	echo $sql;
 	$result = $conn->query($sql);
 	if ($result->num_rows > 0) {
-	  	echo "Success";
 	} else {
 	  echo "0 results";
 	}
@@ -26,36 +24,83 @@ include("../config/dbconnection.php");
 	<div class="container">
 		<div class = "row">
 			<div class = 'col-12'>
+				<div id = 'title-container'>
+					<div id  = 'title'>
+						Patient details
+					</div>
+				</div>
 				<div id = 'record-container'>
 					<div id = 'record'>
-						
 							<?php
 							  while($row = $result->fetch_assoc()) {
-									
 							  	echo "
-							  	<div>
+							  	<div class = 'record'>
+							  		<div class = 'label-container d-inline-block'>
+							  			<div class = 'label'>Patient id</div>
+							  		</div>
+							  		<div class = 'label-value d-inline-block'>
 							  		".$row['patient_id']."
-							  	</div>
-							  	<div>
+							  		</div>
+							  	<div class = 'main-container'>
+							  		<div class = 'label-container d-inline-block'>
+							  			<div class = 'label'>Patient name</div>
+							  		</div>
+							  		<div class = 'label-value d-inline-block'>
 							  		".$row['patient_name']."
+							  		</div>
 							  	</div>
-							  	<div>
+							  	<div class = 'main-container'>
+							  		<div class = 'label-container d-inline-block'>
+							  			<div class = 'label'>Appointment</div>
+							  		</div>
+							  		<div class = 'label-value d-inline-block'>
 							  		".$row['schedule_date']."
+							  		</div>
 							  	</div>
-							  	<div>
+							  	<div class = 'main-container'>
+							  		<div class = 'label-container d-inline-block'>
+							  			<div class = 'label'>Mobile</div>
+							  		</div>
+							  		<div class = 'label-value d-inline-block'>
 							  		".$row['patient_mobile']."
+							  		</div>
 							  	</div>
-							  	<div>
-							  		<img src = ../".$row['patient_image_url'].">
+							  	<div class = 'main-container'>
+							  		<div class = 'label-container d-inline-block'>
+							  			<div class = 'label'>Blood group</div>
+							  		</div>
+							  		<div class = 'label-value d-inline-block'>
+							  		".$row['patient_blood_group']."
+							  		</div>
 							  	</div>
-							  	<div onclick = 'predict(\"".$row['patient_image_url']."\" , \"".$_COOKIE['doctor_id']."\" , \"".$row['patient_id']."\", \"".$row['appointment_id']."\")'>
-							  		Scan
+							  	<div class = 'main-container'>
+							  		<div class = 'label-container d-inline-block'>
+							  			<div class = 'label'>Sex</div>
+							  		</div>
+							  		<div class = 'label-value d-inline-block'>
+							  		".$row['patient_sex']."
+							  		</div>
+							  	</div>
+							  	<div class = 'main-container'>
+							  		<div class = 'label-container d-inline-block'>
+							  			<div class = 'label'>Age</div>
+							  		</div>
+							  		<div class = 'label-value d-inline-block'>
+							  		".$row['patient_age']."
+							  		</div>
+							  	</div>
+
+
+							  	</div>
+							  	<div >
+							  		<img id  = 'image' src = ../".$row['patient_image_url'].">
+							  	</div>
+							  	<div class = 'btn scan' onclick = 'predict(\"".$row['patient_image_url']."\" , \"".$_COOKIE['doctor_id']."\" , \"".$row['patient_id']."\", \"".$row['appointment_id']."\")'>
+							  		Scan MRI for tumor
 							  	</div>
 							  	";	
-
   								}
 							  ?>
-						
 					</div>
 				</div>
 			</div>

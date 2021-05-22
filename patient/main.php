@@ -3,10 +3,8 @@ include("../config/dbconnection.php");
 
 
 $sql1 = "SELECT * FROM scheduled_appointment A,doctor D WHERE patient_id =".$_COOKIE['patient_id']." AND A.doctor_id = D.doctor_id;";
-echo $sql1;
 $result1 = $conn->query($sql1);
 	if ($result1->num_rows > 0) {
-	  	echo "Success";
 	} else {
 	  echo "0 results";
 	}
@@ -14,10 +12,8 @@ $result1 = $conn->query($sql1);
 
 
 $sql = "SELECT * FROM patient_appointment A,doctor D WHERE patient_id =".$_COOKIE['patient_id']." AND A.doctor_id = D.doctor_id;";
-echo $sql;
 $result = $conn->query($sql);
 	if ($result->num_rows > 0) {
-	  	echo "Success";
 	} else {
 	  echo "0 results";
 	}
@@ -95,8 +91,10 @@ $result = $conn->query($sql);
 					</div>
 				</div>
 			</div>
-			<div class = 'col-6' onclick="togglePage()">appointment</div>
-			<div class = 'col-6' onclick="togglePage()">Previous appointment</div>
+			<div id  = 'navigator'>
+				<div class = 'd-inline-block' onclick="togglePage()">Appointment</div>
+				<div class = 'd-inline-block' onclick="togglePage()">Previous appointment</div>
+			</div>
 		</div>
 	</div>
 </body>

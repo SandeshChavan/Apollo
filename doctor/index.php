@@ -1,4 +1,8 @@
 <?php
+include("doctor_header.php");
+?>
+
+<?php
 include("../config/dbconnection.php");
 if(isset($_POST['submit']))
 {
@@ -33,18 +37,33 @@ if(isset($_POST['submit']))
 </head>
 <body>
 	<div class="container">
-		<div class = "row">
+		<div class = "row card">
 			<div class = 'col-12'>
 				<div>
 					<form method="post" action="">
-						<div>
-							<input  type = 'text' name = 'name' id="loginid">
+						<div id  = 'sign-in-container'>
+							<div id  = 'sign-in'>
+								Sign in
+							</div>
+						</div>
+						<div class  = 'text-container'>
+							<div class = 'text'>
+								Doctor Username
+							</div>
 						</div>
 						<div>
-							<input type = 'password' name = 'password' id="password">
+							<input class = 'form-control'  type = 'text' name = 'name' id="loginid">
+						</div>
+						<div class  = 'text-container'>
+							<div class = 'text'>
+								Password
+							</div>
 						</div>
 						<div>
-							<input  type="submit" name="submit" id="submit" value="submit">
+							<input class = 'form-control' type = 'password' name = 'password' id="password">
+						</div>
+						<div class = 'login-container'>
+							<input class ='btn' type="submit" name="submit" id="submit" value="submit">
 						</div>
 					</form>	
 				</div>

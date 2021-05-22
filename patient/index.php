@@ -29,28 +29,45 @@ if(isset($_POST['submit']))
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<link rel="stylesheet" href="../css/bootstrap/css/bootstrap.css">
 	<link rel="stylesheet" href="css/style.css">
-	<script type="text/javascript" src="js/patient_main.js"></script>
-	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+	<script type="text/javascript" src="js/patient_main.js"></script></script>
 </head>
 <body>
 	<div class="container">
-		<div class = "row">
+		<div class = "row card">
 			<div class = 'col-12'>
 				<div>
 					<form method="post" action="">
-						<div>
-							<input  type = 'text' name = 'patient_name' id="loginid">
-						</div>
-						<div>
-							<input type = 'password' name = 'patient_password' id="password">
-						</div>
-						<div>
-							<input  type="submit" name="submit" id="submit" value="submit">
-						</div>
-						<div>
-							<div onClick = 'navigateToRegister()'>
-								Register?
+						<div id  = 'sign-in-container'>
+							<div id  = 'sign-in'>
+								Sign in
 							</div>
+						</div>
+						<div>
+							<div class = 'd-inline-block'>
+								New User?
+							</div>
+							<div id = 'register' class = 'd-inline-block' onClick = 'navigateToRegister()'>
+								Create new account?
+							</div>
+						</div>
+						<div class  = 'text-container'>
+							<div class = 'text'>
+								Patient Username
+							</div>
+						</div>
+						<div>
+							<input class = 'form-control'  type = 'text' name = 'patient_name' id="loginid">
+						</div>
+						<div class  = 'text-container'>
+							<div class = 'text'>
+								Password
+							</div>
+						</div>
+						<div>
+							<input class = 'form-control' type = 'password' name = 'patient_password' id="password">
+						</div>
+						<div class = 'login-container'>
+							<input class ='btn' type="submit" name="submit" id="submit" value="submit">
 						</div>
 					</form>	
 				</div>
