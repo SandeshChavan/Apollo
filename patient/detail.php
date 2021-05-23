@@ -89,7 +89,14 @@ include("../config/dbconnection.php");
 							  		".$row['patient_age']."
 							  		</div>
 							  	</div>
-
+							  	<div class = 'main-container'>
+							  		<div class = 'label-container d-inline-block'>
+							  			<div class = 'label'>Patient note</div>
+							  		</div>
+							  		<div class = 'label-value d-inline-block'>
+							  		".$row['details']."
+							  		</div>
+							  	</div>
 
 							  	</div>
 							  	<div >

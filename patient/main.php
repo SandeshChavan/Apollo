@@ -35,13 +35,16 @@ $result = $conn->query($sql);
 		<div class = "row">
 			<div class = 'col-12'>
 				<div id  = 'scheduled'>
-
+					<div>
+						<div class = 'heading'>SCHEDULED APPOINTMENT</div>
+					</div>
 					<div id  = 'view_record'>
 							<?php
 							  while($row1 = $result1->fetch_assoc()) {
 									
 							  	echo "
 							  	<div class = 'record'>
+							  	<div class = 'content'>
 							  	<div class = 'main-container'>
 							  		<div class = 'label-container d-inline-block'>
 							  			<div class = 'label'>Doctor name</div>
@@ -52,10 +55,10 @@ $result = $conn->query($sql);
 							  	</div>
 							  	<div class = 'main-container'>
 							  		<div class = 'label-container d-inline-block'>
-							  			<div class = 'label'>Doctor email</div>
+							  			<div class = 'label'>Doctor mobile</div>
 							  		</div>
 							  		<div class = 'label-value d-inline-block'>
-							  		".$row1['doctor_email']."
+							  		".$row1['doctor_mobile_number']."
 							  		</div>
 							  	</div>
 							  	<div class = 'main-container'>
@@ -83,6 +86,10 @@ $result = $conn->query($sql);
 							  		</div>
 							  	</div>
 							  	</div>
+							  	<div class = 'content-image'>
+							  		<img class = 'img-thumb' src = '../".$row1['doctor_picture_url']."'>
+							  	</div>
+							  	</div>
 							  	";	
 
   								}
@@ -90,11 +97,15 @@ $result = $conn->query($sql);
 					</div>
 				</div>
 				<div id  = 'request'>
+					<div>
+						<div class = 'heading'>TOKEN RAISED</div>
+					</div>
 					<div id  = 'previous_records'>
 						<?php
 							  while($row = $result->fetch_assoc()) {	
 							  	echo "
 							  	<div class = 'record' onclick = 'navigateToIndividualReport(".$row['patient_id'].",".$row['appointment_id'].")'>
+							  	<div class = 'content'>
 							  		<div class = 'label-container d-inline-block'>
 							  			<div class = 'label'>Doctor name</div>
 							  		</div>
@@ -103,10 +114,10 @@ $result = $conn->query($sql);
 							  		</div>
 							  	<div class = 'main-container'>
 							  		<div class = 'label-container d-inline-block'>
-							  			<div class = 'label'>Doctor email</div>
+							  			<div class = 'label'>Doctor mobile</div>
 							  		</div>
 							  		<div class = 'label-value d-inline-block'>
-							  		".$row['doctor_email']."
+							  		".$row['doctor_mobile_number']."
 							  		</div>
 							  	</div>
 							  	<div class = 'main-container'>
@@ -125,13 +136,9 @@ $result = $conn->query($sql);
 							  		".$row['schedule_date']."
 							  		</div>
 							  	</div>
-							  	<div class = 'main-container'>
-							  		<div class = 'label-container d-inline-block'>
-							  			<div class = 'label'>Patient note</div>
-							  		</div>
-							  		<div class = 'label-value d-inline-block'>
-							  		".$row['details']."
-							  		</div>
+							  	</div>
+							  	<div class = 'content-image'>
+							  		<img class = 'img-thumb' src = '../".$row['patient_picture_url']."'>
 							  	</div>
 							  	</div>
 							  	";	
@@ -139,16 +146,20 @@ $result = $conn->query($sql);
   								}
 							  ?>
 					</div>
-					<div id  = 'create_record'>
-						<div onclick="navigateToCreateRequest()">
+					<div id = 'submit-container'>
+						<div class = 'btn orange' onclick="navigateToCreateRequest()">
 							Create service request
 						</div>
 					</div>
 				</div>
 			</div>
 			<div id  = 'navigator'>
-				<div class = 'd-inline-block' onclick="togglePage()">Service token</div>
-				<div class = 'd-inline-block' onclick="togglePage()">Appointment</div>
+				<div class = 'd-inline-block navigate-main'>
+					<div class = 'navigate-botton' onclick="togglePage()">TOKEN</div>
+				</div>
+				<div class = 'd-inline-block navigate-main'>
+					<div class = 'navigate-botton' onclick="togglePage()">APPOINTMENT</div>
+				</div>
 			</div>
 		</div>
 	</div>
