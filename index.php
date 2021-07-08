@@ -25,6 +25,16 @@ include("header.php");
 				</div>
 			</div>
 		</div>
+		<div>
+			<div id = 'logo-container'>
+				<img id = 'logo' src ='images/playstore.png'>
+			</div>
+		</div>
+		<div id = 'main-container'>
+		<div id = 'footer'>
+			Connecting the healing hands.
+		</div>
+	</div>
 	</div>
 </body>
 </html>

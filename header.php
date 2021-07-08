@@ -9,7 +9,7 @@
 <body>
 	<div id = 'main-container'>
 		<div id = 'header'>
-			Test title
+			APOLLO
 		</div>
 	</div>
 </body>

@@ -12,14 +12,11 @@ if(isset($_COOKIE['patient_id'])) {
 	$sql_query_2 = "SELECT * FROM DOCTOR";
 	$result2 = $conn->query($sql_query_2);
 	if ($result2->num_rows > 0) {
-		$row2 = $result2->fetch_assoc();
   	} else {
- 	 echo "0 results";
 	}
 if(isset($_POST['submit']) && isset($_COOKIE['patient_id']))
 {
 	$patient_id = $_COOKIE['patient_id'];
-	echo $patient_id;
 	$doctor_id = $_REQUEST['doctor_id'];
 	$schedule_date = $_REQUEST['schedule_date'];
 	$details = $_REQUEST['details'];
@@ -28,7 +25,7 @@ if(isset($_POST['submit']) && isset($_COOKIE['patient_id']))
 	move_uploaded_file($_FILES["image"]["tmp_name"], $dir. $_FILES["image"]["name"]);
 	$sql = "INSERT INTO patient_appointment(doctor_id, patient_id, schedule_date, details, patient_image_url)  VALUES ('$doctor_id','$patient_id','$schedule_date','$details','$patient_image_url');";
 	if ($conn->query($sql) === TRUE) {
-    		echo "Insert successful";
+		echo "<script>window.location.href = 'main.php'</script>";
 	} else {
   	echo "Error: " . $sql . "<br>" . $conn->error;
 	}
@@ -55,6 +52,11 @@ $sql_query_3 = "SELECT * FROM patient_appointment";
 	<div class="container">
 		<div class = "row">
 			<div class = 'col-12'>
+				<div id = 'main-container'>
+					<div id = 'header'>
+						CREATE REQUEST
+					</div>
+				</div>
 				<form  action="" method="post" enctype="multipart/form-data">
 						<div>
 							<div>
@@ -127,6 +129,14 @@ $sql_query_3 = "SELECT * FROM patient_appointment";
 						</div>
 						<div>
 							<div class = 'text-container'>
+								<div class = 'text'>Token date</div>
+							</div>
+							<div>
+								<input class = 'form-control' type="date" name="schedule_date">
+							</div>
+						</div>
+						<div>
+							<div class = 'text-container'>
 								<div class = 'text'>Details</div>
 							</div>
 							<div>
@@ -145,10 +155,13 @@ $sql_query_3 = "SELECT * FROM patient_appointment";
 								<div class = 'text'>Doctor</div>
 							</div>
 							<div class = 'text'>
-								<?php 
-								echo "<select class = 'form-control' name = 'doctor_id'>";								
+								<?php
+							  		
+								echo "<select class = 'form-control' name = 'doctor_id'>";	while($row2 = $result2->fetch_assoc()) {							
 								echo "<option  value='".$row2['doctor_id']."'>".$row2['doctor_name']."</option>";
+								}
 								echo "</select>";
+
 								 ?> 
 							</div>
 						</div>

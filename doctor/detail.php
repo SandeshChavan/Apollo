@@ -26,7 +26,7 @@ include("../config/dbconnection.php");
 			<div class = 'col-12'>
 				<div id = 'title-container'>
 					<div id  = 'title'>
-						Patient details
+						PATIENT DETAILS
 					</div>
 				</div>
 				<div id = 'record-container'>
@@ -106,6 +106,12 @@ include("../config/dbconnection.php");
 							  	<div class = 'btn scan' onclick = 'predict(\"".$row['patient_image_url']."\" , \"".$_COOKIE['doctor_id']."\" , \"".$row['patient_id']."\", \"".$row['appointment_id']."\")'>
 							  		Scan MRI for tumor
 							  	</div>
+							  	<div id = 'submit-container'>
+								<button onclick='window.print()' class = 'btn orange' id='submit'>GENERATE PDF</button>
+								</div>
+							  	<div id = 'submit-container'>
+								<button class = 'btn orange' id='schedule' onclick='navigateToScheduleAppointment(".$row['patient_id'].",".$row['appointment_id'].")'>SCHEDULE APPOINTMENT</button>
+								</div>
 							  	";	
   								}
 							  ?>

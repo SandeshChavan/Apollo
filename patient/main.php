@@ -6,7 +6,6 @@ $sql1 = "SELECT * FROM scheduled_appointment A,doctor D WHERE patient_id =".$_CO
 $result1 = $conn->query($sql1);
 	if ($result1->num_rows > 0) {
 	} else {
-	  echo "0 results";
 	}
 
 
@@ -15,7 +14,6 @@ $sql = "SELECT * FROM patient_appointment A,doctor D,patient P WHERE A.patient_i
 $result = $conn->query($sql);
 	if ($result->num_rows > 0) {
 	} else {
-	  echo "0 results";
 	}
 
 ?>

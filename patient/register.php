@@ -33,6 +33,11 @@ if(isset($_POST['submit']))
 	<div class="container">
 		<div class = "row">
 			<div class = 'col-12'>
+				<div id = 'main-container'>
+					<div id = 'header'>
+					PATIENT INFO
+					</div>
+				</div>
 				<div class = 'card-form'>
 					<form method="post" action="">
 						<div>

@@ -32,6 +32,11 @@ if(isset($_POST['submit']))
 	<script type="text/javascript" src="js/patient_main.js"></script></script>
 </head>
 <body>
+	<div id = 'main-container'>
+		<div id = 'header'>
+			APOLLO
+		</div>
+	</div>
 	<div class="container">
 		<div class = "row card">
 			<div class = 'col-12'>
